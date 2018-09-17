@@ -1,11 +1,21 @@
 package com.murakami.reviewsiterestful;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 public class Review {
+
+    @Id
+    @GeneratedValue
+    private long id;
+
 
     private String title = "Test Title";
     private String description = "Test description";
     private String coverURL = "url";
     private String category = "category";
+
+    private Review(){}
 
     public void setTitle(String title){
         this.title = title;
@@ -37,6 +47,28 @@ public class Review {
 
     public String getCategory(){
         return category;
+    }
+
+    public long getId(){
+        return id;
+    }
+
+    @Override
+    public int hashCode() {
+        return ((Long) id).hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+
+        return id == ((Review) obj).id;
     }
 
 
