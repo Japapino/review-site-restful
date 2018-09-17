@@ -9,11 +9,10 @@ import static org.hamcrest.Matchers.is;
 
 public class ReviewTest {
 
-    Review test = new Review();
+    Review test = new Review("test");
 
     @Test
     public void reviewsShouldContainNameAndDescription(){
-        Review test = new Review();
         String testName = test.getTitle();
         String testDescription = test.getDescription();
         assertNotNull(testName);

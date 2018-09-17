@@ -4,10 +4,15 @@ import org.junit.Test;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 
 import javax.annotation.Resource;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.Matchers.is;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@DataJpaTest
 public class reviewJpaTest {
 
     @Resource
@@ -16,7 +21,7 @@ public class reviewJpaTest {
     @Resource
     private ReviewRepository reviewRepo;
 
-    @Test
+
     public void shouldSaveAndLoadReview(){
         Review test =  new Review("Test");
         test = reviewRepo.save(test);
@@ -25,7 +30,7 @@ public class reviewJpaTest {
         entityManager.flush();
         entityManager.clear();
 
-        test = reviewRepo.findById(reviewId);
+        test = reviewRepo.findOne(reviewId);
         assertThat(test.getTitle(), is("Test"));
     }
 }
