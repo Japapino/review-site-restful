@@ -21,11 +21,16 @@ public class ReviewTest {
     }
 
     @Test
-    public void shouldBeAbleToAddOrModifyTitleAndDescriptionsAfterMakingReview(){
-
+    public void shouldBeAbleToAddOrModifyDetailsAfterMakingReview(){
         test.setTitle("Batman");
         test.setDescription("Description here");
+        test.setCoverURL("URL");
+        test.setCategory("Action");
         assertThat(test.getTitle(), is("Batman"));
         assertThat(test.getDescription(), is("Description here"));
+        assertThat(test.getCoverURL(), is("URL"));
+        assertThat(test.getCategory(), is("Action"));
     }
+
+
 }
