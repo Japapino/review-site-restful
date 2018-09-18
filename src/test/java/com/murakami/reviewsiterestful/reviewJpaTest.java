@@ -21,7 +21,7 @@ public class reviewJpaTest {
     @Resource
     private ReviewRepository reviewRepo;
 
-
+    @Test
     public void shouldSaveAndLoadReview(){
         Review test =  new Review("Test");
         test = reviewRepo.save(test);
