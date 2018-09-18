@@ -10,6 +10,7 @@ import static org.hamcrest.Matchers.is;
 public class ReviewTest {
 
     Review test = new Review("test");
+    Category testCategory = new Category("action");
 
     @Test
     public void reviewsShouldContainNameAndDescription(){
@@ -24,11 +25,11 @@ public class ReviewTest {
         test.setTitle("Batman");
         test.setDescription("Description here");
         test.setCoverURL("URL");
-        test.setCategory("Action");
+        test.setCategory(testCategory);
         assertThat(test.getTitle(), is("Batman"));
         assertThat(test.getDescription(), is("Description here"));
         assertThat(test.getCoverURL(), is("URL"));
-        assertThat(test.getCategory(), is("Action"));
+        assertThat(test.getCategory(), is(testCategory));
     }
 
 

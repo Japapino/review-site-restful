@@ -3,6 +3,7 @@ package com.murakami.reviewsiterestful;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Review {
@@ -11,16 +12,22 @@ public class Review {
     @GeneratedValue
     private long id;
 
+    @ManyToOne
+    private Category category;
 
     private String title = "Test Title";
     private String description = "Test description";
     private String coverURL = "url";
-    private String category = "category";
 
     private Review(){}
 
     public Review(String title){
         this.title = title;
+    }
+
+    public Review(String title, Category category){
+        this.title = title;
+        this.category = category;
     }
 
 
@@ -36,7 +43,7 @@ public class Review {
         this.coverURL = url;
     }
 
-    public void setCategory(String category){
+    public void setCategory(Category category){
         this.category = category;
     }
 
@@ -52,7 +59,7 @@ public class Review {
         return coverURL;
     }
 
-    public String getCategory(){
+    public Category getCategory(){
         return category;
     }
 

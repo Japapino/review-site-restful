@@ -3,6 +3,8 @@ package com.murakami.reviewsiterestful;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.Collection;
 
 @Entity
 public class Category {
@@ -10,6 +12,9 @@ public class Category {
     @Id
     @GeneratedValue
     private long id;
+
+    @OneToMany(mappedBy="category")
+    private Collection<Review> reviews;
 
     private String name;
 
@@ -25,6 +30,10 @@ public class Category {
 
     public long getId(){
         return id;
+    }
+
+    public Collection<Review> getReviews(){
+        return reviews;
     }
 
     @Override
