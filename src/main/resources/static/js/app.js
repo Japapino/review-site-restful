@@ -12,6 +12,9 @@ xhr.open('GET', 'http://localhost:8080/reviews', true)
 xhr.send()
 
 function reviewsOverviewSetup (reviews){
-	
+
+	const reviewNameContainer = document.createElement('div')
+	reviewNameContainer.classList.add('reviewNameContainer')
+
 }
 
