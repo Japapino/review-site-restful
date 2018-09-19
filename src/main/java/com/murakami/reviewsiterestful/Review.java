@@ -59,8 +59,8 @@ public class Review {
         return coverURL;
     }
 
-    public Category getCategory(){
-        return category;
+    public String getCategory(){
+        return category.getName();
     }
 
     public long getId(){
