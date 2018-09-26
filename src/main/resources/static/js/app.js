@@ -4,11 +4,17 @@ xhr.onreadystatechange = function(){
 		console.warn('Hello')
 
 		const reviews = JSON.parse(xhr.response)
-		reviewOverviewSetup(reviews); 
+		getReviews(reviews); 
 	}
 }
-xhr.open('GET', 'http://localhost:8080/reviews/1', true)
+xhr.open('GET', 'http://localhost:8080/reviews', true)
 xhr.send()
+
+function getReviews(reviews){
+	reviews.forEach(function(review){
+		reviewOverviewSetup(review)
+	})
+}
 
 function reviewOverviewSetup(res){
 	const body = document.querySelector('.review_container')
