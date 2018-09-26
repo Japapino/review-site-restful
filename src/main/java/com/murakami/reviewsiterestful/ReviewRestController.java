@@ -1,14 +1,11 @@
 package com.murakami.reviewsiterestful;
 
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
 @RestController
-public class ReviewController {
+public class ReviewRestController {
 
     @Resource
     ReviewRepository reviewRepo;
@@ -16,9 +13,15 @@ public class ReviewController {
     @Resource
     CategoryRepository categoryRepo;
 
-    @RequestMapping(path = "/reviews", method = RequestMethod.GET)
+    @RequestMapping(path = "/reviews/{reviewId}", method = RequestMethod.GET)
     public Review getReview(@PathVariable("reviewId") long reviewId){
         Review displayReview = reviewRepo.findOne(reviewId);
         return displayReview;
+    }
+
+    @CrossOrigin("*")
+    @RequestMapping(path = "/reviews", method = RequestMethod.GET)
+    public Iterable<Review> getReviews(){
+        return reviewRepo.findAll();
     }
 }
