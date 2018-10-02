@@ -19,7 +19,7 @@ function getReviews(reviews){
 function reviewOverviewSetup(res){
 	const body = document.querySelector('.review_container')
 	const reviewContainer = document.createElement('div')
-	reviewContainer.classList.add('review_container')
+	reviewContainer.classList.add('review')
 
 	appendElement(reviewContainer, createElement('h2', res.title))
 	appendElement(reviewContainer, createElement('h2', res.description))
