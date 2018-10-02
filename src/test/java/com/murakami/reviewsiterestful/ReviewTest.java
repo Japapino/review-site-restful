@@ -1,6 +1,5 @@
 package com.murakami.reviewsiterestful;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertNotNull;

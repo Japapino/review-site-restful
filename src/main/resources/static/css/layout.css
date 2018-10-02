@@ -6,6 +6,7 @@
 #main {
 	background-color: yellow;
 	display: flex;
+	justify-content: space-around;
 }
 
 #main_left {
@@ -17,4 +18,9 @@
 #main_right {
 	background-color: blue;
 	border-width: 1px; 
+}
+
+header {
+	display: flex;
+	justify-content: center;
 }
