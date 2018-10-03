@@ -12,11 +12,15 @@ xhr.send()
 
 function getReviews(reviews){
 	reviews.forEach(function(review){
-		reviewOverviewSetup(review)
+		reviewSetup(review)
+	})
+
+	reviews.forEach(function(review){
+		overviewSetup(review)
 	})
 }
 
-function reviewOverviewSetup(res){
+function reviewSetup(res){
 	const body = document.querySelector('.review_container')
 	const reviewContainer = document.createElement('div')
 	reviewContainer.classList.add('review')
@@ -26,25 +30,16 @@ function reviewOverviewSetup(res){
 	appendElement(body, reviewContainer)
 
 }
-// function reviewOverviewSetup(){
-// 	funds.forEach(function(review){
-// 		appendOneElementToBody(review)
-// 	})
-// }
 
-// function appendOneElementToBody(res){
-// 	const body = document.quereySelector('.review_container')
-// 	const reviewContainer = document.createElement('div')
-// 	reviewContainer.classList.add('review_container')
+function overviewSetup(res){
+	const body = document.querySelector('.review_container')
+	const overviewContainer = document.createElement('div')
+	overviewContainer.classList.add('overview')
 
-// 	let review = createElement('button', res.reviewName)
-// 	review.className = 'reviewInformaion'
-
-// 	appendElement(reviewContainer, createElement('h2', res.reviewTitle))
-// 	appendElement(reviewContainer, createElement('h2', res.reviewDescription))
-
-// 	appendElement(body, reviewContainer)
-// }
+	appendElement(overviewContainer, createElement('p', res.coverURL))
+	appendElement(overviewContainer, createElement('div', res.description))
+	appendElement(body, overviewContainer)
+}
 
 function createElement(elem, textValue){
 	const newElem = document.createElement(elem)
