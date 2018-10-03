@@ -1,0 +1,27 @@
+.overview {
+	position: absolute;
+	left: -30%;
+	z-index: 998;
+	color: #005c9c;
+	background: rgba(#fafafa,.7);
+	clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+	width: 30%;
+	height: 100%;
+	padding: 100px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	transition: 300ms left cubic-bezier(0.77, 0, 0.175, 1);
+	@media only screen and (max-width: 600px) {
+		width: 250px;
+		left: -250px;
+		padding: 50px;
+	}
+	&.active {
+		left: 0;
+	}
+	p {
+		font-size: 1.4rem;
+		margin-bottom: 1rem;
+	}
+}
