@@ -5,7 +5,7 @@ reviewsList = {
 		xhr.onreadystatechange = function (){
 			if (xhr.readyState ==== 4 && xhr.status === 200) {
 				var reviewArray = JSON.parse(xhr.response);
-				reviewsList.reviews = reviesArray; 
+				reviewsList.reviews = reviewsArray; 
 				console.log(reviewsArray); 
 			}
 		};

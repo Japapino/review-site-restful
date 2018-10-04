@@ -1,7 +1,14 @@
-const movieButton = document.querySelector('.review_container button')
-movieButton = addEventListener('click', posterSetup)
+function clickingOnMovieName() {
+	const movieName = document.querySelectorAll('.review button')
+	if (movieName) movieName.forEach(button => {
+		const movieId = button.parentElement.getAttribute('id');
+		button.addEventListener('click', () => {
+			showPoster(movieId); 
+		})
+	})
+}
 
-function posterSetup(res){
+function showPoster (id){
 	const body = document.querySelector('.movie_poster')
 	var poster = document.querySelector('.poster')
 	if (poster){
@@ -9,20 +16,12 @@ function posterSetup(res){
 	}
 
 	//retrieve movie poster
-	var xhrPosterRequest = new XMLHttpRequest()
-	xhrPosterRequest.onreadystatechange = function(){
-    	if (xhrPosterRequest.readyState === 4 && xhrPosterRequest.status === 200){
-    		var res = JSON.parse(xhrPosterRequest)
-    	}
-	}
-
-	xhrPosterRequest.open('GET', '/reviews/1' , true)
-    xhrPosterRequest.send()
+	
 
 	const posterContainer = document.createElement('div')
 	posterContainer.classList.add('poster')
 
-	appendElement(posterContainer, addImage('img', res.coverURL))
+	appendElement(posterContainer, addImage('img', id.coverURL))
 	appendElement(body, posterContainer)
 }
 
