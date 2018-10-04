@@ -10,9 +10,6 @@
 }
 
 #main_left {
-/*	position: absolute;
-	top: 20px;
-	left: 20px;*/
 	background-color: green;
 	z-index: 999;
 	border-width: 1px; 
@@ -48,9 +45,20 @@ body {
 	cursor: pointer; 
 }
 
-.overview {
+.overview_container {
 	z-index: 998;
-/*	position: absolute;
+	p/*osition: absolute;
 	top: 40px;
 	left: 40px; */
+}
+
+.review_container {
+	z-index: 999;
+/*	position: absolute;
+	top: 40px; 
+	left: 40px;*/
+}
+
+.review button {
+	font-size: 20px;
 }

@@ -32,7 +32,7 @@ function reviewSetup(res){
 }
 
 function overviewSetup(res){
-	const body = document.querySelector('.review_container')
+	const body = document.querySelector('.overview_container')
 	const overviewContainer = document.createElement('div')
 	overviewContainer.classList.add('overview')
 
@@ -50,4 +50,5 @@ function createElement(elem, textValue){
 function appendElement(parent, child){
 	parent.appendChild(child)
 }
+
 
