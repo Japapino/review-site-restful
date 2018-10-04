@@ -1,24 +1,5 @@
-const xhr = new XMLHttpRequest()
-xhr.onreadystatechange = function(){
-	if (xhr.readyState === 4 && xhr.status === 200){
-		console.warn('Hello')
-
-		const reviews = JSON.parse(xhr.response)
-		getReviews(reviews); 
-	}
-}
-xhr.open('GET', 'http://localhost:8080/reviews', true)
-xhr.send()
-
-function getReviews(reviews){
-	reviews.forEach(function(review){
-		reviewSetup(review)
-	})
-
-	reviews.forEach(function(review){
-		overviewSetup(review)
-	})
-}
+const movieButton = document.querySelector('.review_container button')
+movieButton = addEventListener('click', posterSetup)
 
 function posterSetup(res){
 	const body = document.querySelector('.movie_poster')
@@ -26,7 +7,18 @@ function posterSetup(res){
 	if (poster){
 		body.removeChild('.poster')
 	}
-	
+
+	//retrieve movie poster
+	var xhrPosterRequest = new XMLHttpRequest()
+	xhrPosterRequest.onreadystatechange = function(){
+    	if (xhrPosterRequest.readyState === 4 && xhrPosterRequest.status === 200){
+    		var res = JSON.parse(xhrPosterRequest)
+    	}
+	}
+
+	xhrPosterRequest.open('GET', '/reviews/1' , true)
+    xhrPosterRequest.send()
+
 	const posterContainer = document.createElement('div')
 	posterContainer.classList.add('poster')
 
@@ -49,3 +41,4 @@ function addImage(cover){
 	newImage.setAttribute('src', cover)
 	return newImage
 }
+
