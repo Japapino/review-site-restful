@@ -28,6 +28,9 @@ function reviewSetup(res){
 	appendElement(reviewContainer, createElement('h2', res.description))
 	appendElement(body, reviewContainer)
 
+	reviewContainer.setAttribute('data-review-id', res.id)
+	reviewContainer.setAttribute('data-review-cover', res.coverURL)
+
 }
 
 function overviewSetup(res){

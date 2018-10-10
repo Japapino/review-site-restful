@@ -1,28 +1,31 @@
+
+
+
 function clickingOnMovieName() {
-	console.warn('test1')
 	const movieName = document.querySelectorAll('.review')
 	if (movieName) movieName.forEach(button => {
-		console.warn('test2')
-		const movieId = button.parentElement.getAttribute('id');
+		const movieId = button.parentElement.getAttribute('data-review-id');
+		const movieCover = button.parentElement.getAttribute('data-review-cover')
 		button.addEventListener('click', () => {
-			showPoster(movieId); 
+			showPoster(movieId, movieCover); 
 		})
 	})
 }
 
-function showPoster (id){
+function showPoster (id, cover){
+	console.warn('poster test')
 	const body = document.querySelector('.movie_poster')
-	var poster = document.querySelector('.poster')
-	if (poster){
-		body.removeChild('.poster')
-	}
+	// var poster = document.querySelector('.poster')
+	// if (poster){
+	// 	body.removeChild('.poster')
+	// }
 
 	//retrieve movie poster
 
 	const posterContainer = document.createElement('div')
 	posterContainer.classList.add('poster')
 
-	appendElement(posterContainer, addImage('img', id.coverURL))
+	appendElement(posterContainer, addImage('img', cover))
 	appendElement(body, posterContainer)
 }
 
@@ -37,7 +40,7 @@ function appendElement(parent, child){
 }
 
 function addImage(cover){
-	const newImage = document.createElement(img)
+	const newImage = document.createElement('img')
 	newImage.setAttribute('src', cover)
 	return newImage
 }
