@@ -1,6 +1,8 @@
 function clickingOnMovieName() {
-	const movieName = document.querySelectorAll('.review button')
+	console.warn('test1')
+	const movieName = document.querySelectorAll('.review')
 	if (movieName) movieName.forEach(button => {
+		console.warn('test2')
 		const movieId = button.parentElement.getAttribute('id');
 		button.addEventListener('click', () => {
 			showPoster(movieId); 
@@ -16,7 +18,6 @@ function showPoster (id){
 	}
 
 	//retrieve movie poster
-	
 
 	const posterContainer = document.createElement('div')
 	posterContainer.classList.add('poster')

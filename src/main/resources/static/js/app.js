@@ -16,6 +16,7 @@ function getReviews(reviews){
 	reviews.forEach(function(review){
 		overviewSetup(review)
 	})
+	clickingOnMovieName()
 }
 
 function reviewSetup(res){
@@ -23,7 +24,7 @@ function reviewSetup(res){
 	const reviewContainer = document.createElement('div')
 	reviewContainer.classList.add('review')
 
-	appendElement(reviewContainer, createElement('button', res.title))
+	appendElement(reviewContainer, createElement('h1', res.title))
 	appendElement(reviewContainer, createElement('h2', res.description))
 	appendElement(body, reviewContainer)
 
@@ -37,6 +38,7 @@ function overviewSetup(res){
 	appendElement(overviewContainer, createElement('p', res.coverURL))
 	appendElement(overviewContainer, createElement('div', res.description))
 	appendElement(body, overviewContainer)
+
 }
 
 function createElement(elem, textValue){
